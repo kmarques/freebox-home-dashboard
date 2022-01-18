@@ -6,6 +6,14 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+#__next {
+  min-height: 100vh;
+  max-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  overflow: scroll;
+}
+
 a {
   color: inherit;
   text-decoration: none;

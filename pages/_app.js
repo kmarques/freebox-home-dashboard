@@ -1,7 +1,21 @@
-import '../styles/globals.css'
+import { loadConfiguration } from "../contexts/actions/freebox";
+import FreeboxProvider from "../contexts/FreeboxContext";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <FreeboxProvider config={pageProps.configuration}>
+      <Component {...pageProps} />
+    </FreeboxProvider>
+  );
 }
 
-export default MyApp
+MyApp.getServerSideProps = async (ctx) => {
+  const configuration = await loadConfiguration();
+
+  return {
+    configuration,
+  };
+};
+
+export default MyApp;
